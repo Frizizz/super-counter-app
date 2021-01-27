@@ -1,0 +1,22 @@
+.RoundedButton {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border: none;
+  margin: 0 2rem;
+  font-size: 2em;
+  box-shadow: 0 4px 32px 0 rgba(10, 14, 29, 0.02),
+    0 8px 64px 0 rgba(10, 14, 29, 0.08);
+  background: #eef4ff;
+  cursor: pointer;
+  color: #99a3ba;
+}
+
+.RoundedButton:hover {
+  font-size: 3em;
+  background: #275efe;
+}
+
+.RoundedButton:focus {
+  outline: 0;
+}
