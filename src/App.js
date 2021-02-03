@@ -1,23 +1,25 @@
 import './App.css'
 import Title from './components/Title'
-import useCounter from './useCounter'
 import NumericInput from './components/NumericInput'
+import { useReducer } from 'react'
+import reducer, {
+  decreaseCount,
+  increaseCount,
+  initialState,
+  resetCount,
+  setInitAll,
+  setInitialCount,
+  setMaxCount,
+  setStep,
+} from './counter.reducer'
 
 function App() {
   /* TODO */
-  const {
-    count,
-    increase,
-    decrease,
-    resetCount,
-    initialCount,
-    step,
-    maxCount,
-    setInitAll,
-    onSetInitialCount,
-    onSetMaxCount,
-    onSetStep,
-  } = useCounter()
+
+  const [{ count, step, initialCount, maxCount }, dispatch] = useReducer(
+    reducer,
+    initialState
+  )
 
   return (
     <div className="App">
@@ -25,13 +27,22 @@ function App() {
       <p className="CounterDisplay">{count}</p>
       {!count && <span>Vous pouvez démarrer à tout moment</span>}
       <div className="CounterControl">
-        <button onClick={decrease} className="RoundedButton">
+        <button
+          onClick={() => dispatch(decreaseCount())}
+          className="RoundedButton"
+        >
           -
         </button>
-        <button onClick={increase} className="RoundedButton">
+        <button
+          onClick={() => dispatch(increaseCount())}
+          className="RoundedButton"
+        >
           +
         </button>
-        <button onClick={resetCount} className="RoundedButton">
+        <button
+          onClick={() => dispatch(resetCount())}
+          className="RoundedButton"
+        >
           Init
         </button>
       </div>
@@ -40,7 +51,7 @@ function App() {
           <span>valeur initiale</span>
           <NumericInput
             value={initialCount}
-            onChange={(event) => onSetInitialCount(event.target.value)}
+            onChange={(event) => dispatch(setInitialCount(event.target.value))}
             className="form-field"
             type="text"
           />
@@ -49,7 +60,7 @@ function App() {
           <span>pas</span>
           <NumericInput
             value={step}
-            onChange={(event) => onSetStep(event.target.value)}
+            onChange={(event) => dispatch(setStep(event.target.value))}
             className="form-field"
             type="text"
           />
@@ -58,12 +69,15 @@ function App() {
           <span>valeur maximale</span>
           <NumericInput
             value={maxCount}
-            onChange={(event) => onSetMaxCount(event.target.value)}
+            onChange={(event) => dispatch(setMaxCount(event.target.value))}
             className="form-field"
             type="text"
           />
         </div>
-        <button onClick={setInitAll} className="SquaredButton">
+        <button
+          onClick={() => dispatch(setInitAll())}
+          className="SquaredButton"
+        >
           Tout nettoyer
         </button>
       </div>
