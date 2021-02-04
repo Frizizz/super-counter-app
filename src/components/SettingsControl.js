@@ -10,6 +10,7 @@ import {
   setMaxCount,
   setStep,
 } from '../counter.reducer'
+import withDesktopOnlyHoc from '../withDesktopOnlyHoc'
 
 function SettingsControl() {
   const { initialCount, step, maxCount, dispatch } = useContext(CounterContext)
@@ -48,4 +49,4 @@ function SettingsControl() {
   )
 }
 
-export default SettingsControl /* TODO: HOC -> voir withDesktopOnlyHoc.js */
+export default withDesktopOnlyHoc(SettingsControl)
