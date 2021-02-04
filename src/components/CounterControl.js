@@ -2,6 +2,7 @@ import './CounterControl.css'
 import RoundedButton from './RoundedButton'
 import { useContext } from 'react'
 import { CounterContext } from '../CounterContext'
+import { decreaseCount, increaseCount, resetCount } from '../counter.reducer'
 
 function CounterControl() {
   const { dispatch } = useContext(CounterContext)
@@ -10,21 +11,21 @@ function CounterControl() {
     <div className="CounterControl">
       <RoundedButton
         onClick={() => {
-          /* TODO */
+          dispatch(decreaseCount())
         }}
       >
         -
       </RoundedButton>
       <RoundedButton
         onClick={() => {
-          /* TODO */
+          dispatch(increaseCount())
         }}
       >
         +
       </RoundedButton>
       <RoundedButton
         onClick={() => {
-          /* TODO */
+          dispatch(resetCount())
         }}
       >
         Init

@@ -2,35 +2,44 @@ import './SettingsControl.css'
 import InputWithLabel from './InputWithLabel'
 import { BiReset } from 'react-icons/bi'
 import SquaredButton from './SquaredButton'
+import { CounterContext } from '../CounterContext'
+import { useContext } from 'react'
+import {
+  setInitAll,
+  setInitialCount,
+  setMaxCount,
+  setStep,
+} from '../counter.reducer'
 
 function SettingsControl() {
-  /* TODO */
+  const { initialCount, step, maxCount, dispatch } = useContext(CounterContext)
+
   return (
     <div className="SettingsControl">
       <InputWithLabel
         label="valeur initiale"
-        value={0 /* TODO */}
-        onChange={() => {
-          /* TODO */
+        value={initialCount}
+        onChange={(event) => {
+          dispatch(setInitialCount(event.target.value))
         }}
       />
       <InputWithLabel
         label="pas"
-        value={0 /* TODO */}
-        onChange={() => {
-          /* TODO */
+        value={step}
+        onChange={(event) => {
+          dispatch(setStep(event.target.value))
         }}
       />
       <InputWithLabel
         label="valeur maximale"
-        value={0 /* TODO */}
-        onChange={() => {
-          /* TODO */
+        value={maxCount}
+        onChange={(event) => {
+          dispatch(setMaxCount(event.target.value))
         }}
       />
       <SquaredButton
         onClick={() => {
-          /* TODO */
+          dispatch(setInitAll())
         }}
       >
         Tout nettoyer <BiReset />
