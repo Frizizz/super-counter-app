@@ -3,12 +3,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
-/* TODO */
+import { CounterContextProvider } from './CounterContext'
 
 ReactDOM.render(
-  /* TODO */
   <React.StrictMode>
-    <App />
+    <CounterContextProvider>
+      <App />
+    </CounterContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 )

@@ -9,30 +9,34 @@ function SettingsControl() {
     <div className="SettingsControl">
       <InputWithLabel
         label="valeur initiale"
-        value={}
+        value={0 /* TODO */}
         onChange={() => {
           /* TODO */
         }}
       />
       <InputWithLabel
         label="pas"
-        value={}
+        value={0 /* TODO */}
         onChange={() => {
           /* TODO */
         }}
       />
       <InputWithLabel
         label="valeur maximale"
-        value={}
+        value={0 /* TODO */}
         onChange={() => {
           /* TODO */
         }}
       />
-      <SquaredButton onClick={/* TODO */}>
+      <SquaredButton
+        onClick={() => {
+          /* TODO */
+        }}
+      >
         Tout nettoyer <BiReset />
       </SquaredButton>
     </div>
   )
 }
 
-export default SettingsControl /* TODO */
+export default SettingsControl /* TODO: HOC -> voir withDesktopOnlyHoc.js */

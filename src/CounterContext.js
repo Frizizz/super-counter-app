@@ -1,4 +1,9 @@
+import { createContext } from 'react'
+
+export const CounterContext = createContext()
+
 export function CounterContextProvider({ children }) {
-  /* TODO */
-  return children
+  return (
+    <CounterContext.Provider value={{}}>{children}</CounterContext.Provider>
+  )
 }
